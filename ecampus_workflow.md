@@ -118,11 +118,11 @@ It also makes it very easy to embed content from other pages. This includes thin
 
 <iframe height="400px" width="100%" src="https://repl.it/@coeCS362/providinganswers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Writing Markdown
+# Writing Markdown
 
 One of the best parts of writing Markdown is that you can do it in _any_ text editor! I am going to go over two methods I have personally tried.
 
-### The Correct Way - Emacs
+## The Correct Way - Emacs
 
 I have an addiction and that addiction is called _Emacs_. Using the King of Editors, it is possible to set up a workflow that allows you to write in Markdown and have it rendered in a browswer in real time. This is very useful when getting used to Markdown and you want to ensure everything looks as you would expect.
 
@@ -130,7 +130,7 @@ I have an addiction and that addiction is called _Emacs_. Using the King of Edit
 
 I am sure most folks don't want to use Emacs so I won't detail how to set it up this way, but if you are interested send me an email ([iannie@oregonstate.edu](mailto:iannie@oregonstate.edu)).
 
-### The Less Correct Way - VS Code
+## The Less Correct Way - VS Code
 
 While this is not the _ideal_ way of writing Markdown, it is _acceptable_ as VS Code allows Emacs keybindings. Believe it or not, VS Code requires zero work on your part to allow you to preview what your Markdown would look in a browser. 
 
@@ -144,31 +144,112 @@ You will now have a real time render of your Markdown.
 
 One word of warning about VS Code's solution. If you copy directly from the preview panel and paste it into Canvas, some of the formatting may be messed up. It is better to use the solution mentioned below
 
-## Enter GitHub
+# Enter GitHub
 
 What I didn't mention when discussing the development of Markdown is that the original authors stopped developing it the same year it was first released. One of the biggest reasons for Markdown's continued use could be that GitHub adopted it as the language for their `README.md` files. 
 
-### GitHub Markdown
+## GitHub Markdown
 
 GitHub's love affair with Markdown has lead them to create their own variant. It follows pretty much all the rules of Vanilla Markdown, but it is rendered exactly how GitHub wants it. One example of this is the above mentioned Syntax Highlighting for code snippets. As you can see in the image below, GitHub's Syntax Highlighting is more in line with what you would expect.
 
 ![GitHub Flavored MD](./images/github_flavored_md.png "Which one looks better?")
 
-What is even better about GitHub, is that _any_ Markdown file hosted in a repo is automatically converted when visiting the page. 
+What is even better about GitHub, is that _any_ Markdown file hosted in a repo is automatically converted when visiting the page. This will come into play later when we discuss working with Ecampus. The one caveat to this, is that GitHub won't render embedded `<iframe>`'s like our Replit above. No worries though, there _is_ a GitHub based solution!
 
-### GitHub Pages
+## GitHub Pages
+
+GitHub now allows hosting of websites using repos. This feature can also be used to convert our Markdown files into actual HTML pages, which means any embedded `<iframe>`'s will work as expected!
+
+To enable, just go to your repo's settings and under GitHubPages select which branch you want to use: most likely `master`. You can even choose a theme for how your page will be rendered; I am partial to _Merlot_.
+
+![Enable GitHub Pages](./images/github_enable_pages.png "Pick a branch!")
+
+You will not be provided with a link to your hosted page. Unless you have an `index` file, click this URL will give you a 404 error. But we can use it to navigate to our converted Markdown files. 
+
+![GitHub Pages Link](./images/pages_link.png "404 here we come!")
+
+The Markdown file I am typing into right now is called `ecampus_workflow.md`. To visit the GitHub Pages version, I just tack this onto the end of the above URL: `https://ericianni.github.io/ecampus_workflow/ecampus_workflow`. Now I have a fully fleshed out webpage that I can easily share for testing or feedback. I have found this very useful for prototyping lessons before I have somewhere to put them on Canvas.
 
 # What about Ecampus?
 
-## Trello
+You may be asking, "Eric, this all sounds nice a good, but how does this help course development when it comes to Ecampus?" This is a very good, if a bit impertinent, question. If you have developed courses in the past, you may have had to handle everything from content creation to setting up everything on Canvas yourself. This meant less time could be dedicated to what you do best: create engaging content.
 
-* Columns
-* Labels
-* Checklists
-* URLs in the comments
+No more! Just as we are subject matter experts, Ecampus are Canvas experts (among other things). They have extensive experience with taking a wide range of content types and fashioning a fully functional Canvas course. That is not to say we can't do our part to make the process smoother.
+
+## Passive Communication
+
+While Ecampus will meet regularly with you for formal checkins, they are often weeks apart. How can we as course developers best communicate outside of meetings? Sending emails is very important, but could quickly flood an inbox if you send one everytime you have made progress on your course.
+
+When developing my course, I decided to try something I am calling "Passive Communication." At it's core, it is a system where I update a shared website with my updates as I make them. My Ecampus liason would then be able to check in at any time to see my progress, but more importantly know when something was ready to be imported to Canvas.
+
+Much of what I am going to describe below are things I would do anyway for my own organizational purposes, but proved to be crucial with a smooth working relationship with Ecampus.
+
+### Create an Outline
+
+The first step is to create an outline. I chose to do this is Markdown and host it on GitHub. This outline included the course CLOs, module names, planned explorations, and assignments.
+
+```markdown
+## Course CLOs
+
+1. **Apply** automated tools such as _make_ and CVS in a realistic setting
+2. **Describe** the cost-benefit trade-offs inherent in the use of automated tools for building software and configuration management
+3. **Describe** several techniques for validating and measuring the quality of software
+4. **Apply** testing techniques for validating and measuring the quality of software
+5. **Use** appropriate techniques and tools, including a debugger, to locate program faults
+6. **Describe** several types of maintenance processes associated with correcting and enhancing software systems
+7. **Participate** effectively in a software inspection/code review
+8. **Participate** effectively in a team environment
+
+## Proposed Course Modules
+
+* Start Here
+  * Instructor & TA Communication Policy and Information
+  * Slack How-To
+  * Useful Links
+  * Course Policy Quiz (Non-graded Quiz)
+* Week 1 - Tool Setup
+  * CLO(s): 1, 5
+  * Setup Git and Conda (Exploration)
+  * Setup Pycharm (Exploration)
+  * Version Control System (Exploration)
+  * Git Activity (Activity)
+	* Due: Week 2 Monday
+```
+Not only is it just a good idea to have a plan, this file helped Ecampus speed ahead and build the skeleton of my course. Each one of these buleet points was able to be created, with appropriate due dates, without me needing to actively ask my Ecampus liason.
+
+### Trello
+
+While the above mentioned outline was a good starting point, it was static and didn't provide Ecampus with a snapshot of what needed doing by each party at any moment. I decided to use an online "corkboard" to share with Ecampus: Trello.
+
+Trello allows users to create "cards" that represent tasks that need doing. These cards exist in one of multiple user defined "tables." The idea is that each table represents a different status for each card. To help passively communicate to Ecampus the state of the course, I created the following tables:
+
+* **Things To Do** - where I created a card for each bullet in my course outline
+* **Doing** - the cards I was actively working on
+* **Done** - the cards that I felt were ready to be imported
+* **Imported** - Ecampus would move the **Done** cards here when imported to Canvas
+* **Completed - Reviewed by Ecampus** - Ecampus would move any *Imported* card here once it was published on Canvas
+
+![Trello Example](./images/trello_overview.png "Very empty")
+
+You may notice that some cards have different colors attached to them; these are called "Labels." I found it useful to create different color labels to represent different types of content. For example, <span style="color:green">green</span> labels were used for _Explorations_ while <span style="color:orange">orange</span> labels were for _Homeworks_.
+
+Trello cards can also have details within them. It is possible to add descriptions, create checklists, and make comments. I would often use checklists to help me visualize what I needed to do and this also helped Ecampus understand how **Done** the **Doing** cards were. The comment feature was used to let Ecampus know where to find the uploaded content on GitHub by linking to the URL.
+
+![Card Details](./images/trello_card.png "Look at the options!")
+
+Once a card moved to *Done*, Ecampus could follow the provided URL and almost literally just copy and paste the rendered Markdown directly into Canvas.
+
+#### GitHub Source
+
+![Copy Markdown](./images/copy_markdown.png "Just highlight and CTRL-C")
+
+#### Canvas Result After Pasting
+
+![Copy Markdown Results](./images/copy_markdown_results.png "It really is that easy")
 
 ## Be Kind to your ID
 
+* Create a Markdown file
 * Identify the name of your images next to your images
 * Upload images directly to Canvas
 
