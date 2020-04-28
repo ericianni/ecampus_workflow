@@ -116,11 +116,31 @@ Markdown allows for directly writing HTML code into the same document. This is v
 
 It also makes it very easy to embed content from other pages. This includes things like YouTube videos, but more importantly for our purposes...
 
-<iframe height="400px" width="100%" src="https://repl.it/@coeCS362/providinganswers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<!-- <iframe height="400px" width="100%" src="https://repl.it/@coeCS362/providinganswers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe> -->
 
 ## Writing Markdown
+
+One of the best parts of writing Markdown is that you can do it in _any_ text editor! I am going to go over two methods I have personally tried.
+
 ### The Correct Way - Emacs
-### VS Code
+
+I have an addiction and that addiction is called _Emacs_. 
+
+
+```lisp
+(defun markdown-html (buffer)
+  (princ (with-current-buffer buffer
+    (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
+	 (current-buffer)))
+
+(defun markdown-preview-live ()
+  (interactive)
+  (impatient-mode 1)
+  (setq imp-user-filter #'markdown-html)
+  (cl-incf imp-last-state)
+  (imp--notify-clients))
+```
+### The Less Correct Way - VS Code
 
 # Enter GitHub
 ## GitHub Markdown
