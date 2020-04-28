@@ -8,6 +8,8 @@ At the end of this webinar, attendees will be able to...
 
 1. **Describe** how Markdown can be used to generate Canvas content
 2. **Demonstrate** simple Markdown commands
+3. **Identify** ways course developers can assist Ecampus
+4. **Identify** ways Ecampus can assist course developers
 
 # What is Markdown?
 
@@ -221,6 +223,8 @@ Not only is it just a good idea to have a plan, this file helped Ecampus speed a
 
 While the above mentioned outline was a good starting point, it was static and didn't provide Ecampus with a snapshot of what needed doing by each party at any moment. I decided to use an online "corkboard" to share with Ecampus: Trello.
 
+Trello offers a free service that is more than enough for our needs. Signing up is easy by going to [www.trello.com](www.trello.com) and logging on with your OSU Google account. Once you have an account, you can create a "Board" which you can invite others to view or edit.
+
 Trello allows users to create "cards" that represent tasks that need doing. These cards exist in one of multiple user defined "tables." The idea is that each table represents a different status for each card. To help passively communicate to Ecampus the state of the course, I created the following tables:
 
 * **Things To Do** - where I created a card for each bullet in my course outline
@@ -249,15 +253,98 @@ Once a card moved to *Done*, Ecampus could follow the provided URL and almost li
 
 ## Be Kind to your ID
 
-* Create a Markdown file
-* Identify the name of your images next to your images
-* Upload images directly to Canvas
+As you can see, this workflow is designed to be very low maintence and allow for you to seamlessly hand off content to Ecampus with a minimum of communication overhead. That said, there are things that can make the life of your Ecampus liason much easier.
+
+### Images
+
+Copying and pasting the rendered Markdown from GitHub will work for any embedded images. The only problem is that the images are linked to the GitHub repo and aren't hosted on Canvas directly. This is a problem as Ecampus, rightfully so, wants to have all the content contained in the same place, including images.
+
+When initially working with Ecampus, my liason mentioned to me that he was being slowed down by having to locate the name of the image on the page, then download it from GitHub, and then upload it to Canvas to be embedded. Being the helpful gent that I am, I proposed another solution that seemed to work very well. 
+
+First, next to _every_ embedded image I would provide the name of the file.
+
+![Image Names](./images/image_names.png "Not pretty, but effective")
+
+Second, I created a file structure for each week's module to house the images. I would upload these images myself instead of asking Ecampus to download them from GitHub.
+
+* Files
+  * week1
+	* images
+	  * activity1
+	    * sample.png
+	  * exploration_setup
+	    * verbosity1.png
+		* verbosity2.png
+  * week2
+  * ...
+
+This setup allowed my Ecampus liason to quickly copy and paste from GitHub and replace all the images one by one with the files now on Canvas.
+
+### Update The Shared Resources
+
+The workflow only works as well as both parties are committed to using it. If you aren't frequently updating the status of each task on Trello or aren't pushing changes to GitHub, the system will fall apart. This workflow is designed to eliminate common bottlenecks on collabrative projects by reducing the amount of active communication needed. If our Ecampus liason needs to constantly contact us to see if any material is ready to import, then we have failed. 
+
+It is also useful as a way to offload some of both of your cognitive loads freeing you to focus on improving the course. By using Trello, Ecampus can perform daily checkins between the formal meetings to see progress towards delivery. This can reduce their stress levels, which in turn can reduce yours.
 
 ## Things your ID can do to help
 
-* Collapsable elements
-* Importing into Canvas
-* Make it look nice
+Now, this workflow isn't all about what we can do for Ecampus! How said helping others means we can't also help ourselves. By making our content as easy as possible to get into Canvas, we free up some time for Ecampus to help us really make our courses pop!
+
+### Canvas Wizadry
+
+Remember how I said Ecampus was experienced with Canvas? They have the experience and knowledge to do things that we are not even sure are possible. If I had an idea that I thought would benefit the students' learning, I would ask my Ecampus liason even if I had no idea how to do it myself. And lo and behold, just like the Imagineers making magic happen when Walt Disney (can you believe my ego?) asked for something impossible, my liason always came through. 
+
+One such act of Canvas Wizadry was collapsable elements. I employ an _active learning_ style in all my course content and one of the key elements is having the students reflect _during_ the exploration. This is easy to do in a classroom, but online it was proving difficult to ask questions without having the answers immediately visible, thus defeating the purpose. So I asked if there was some way of hiding the answers. 
+
+My Ecampus liason came back with this brilliant solution!
+
+#### Posit Question
+
+![Ask a question](./images/question_time.png "Nothing to see here")
+
+#### Giveth Answer
+
+![Provide Answer](./images/answer_time.png "Behold!")
+
+In case you are curious what this looks like in actual HTML, take a look at this nightmare:
+
+```HTML
+<p>
+	<span class="element_toggler" style="background-color: #ffffff; color: #d53900; font-weight: normal; font-style: normal;" aria-controls="group_1" aria-label="Toggler toggle list visibility" aria-expanded="false">Click here to reveal the answer.</span>
+</p>
+<div id="group_1" style="display: none; background-color: aliceblue; padding: 10px;">These types of tests are used to verify that the software meets the requirement specifications when it comes to functionality; does the software do the things it is expected to do?
+	<p><strong>Examples:</strong></p>
+	<ul>
+		<li>Does clicking "save" actually save the changes to the hard drive?</li>
+		<li>Does the search algorithm actually find the shortest path?</li>
+		<li>Does the isItPrime function correctly identify prime numbers?</li>
+		<li>Does the database correctly supply responses to the client?</li>
+	</ul>
+</div>
+```
+
+### Importing to Canvas
+
+This whole workflow is about making it easy for Ecampus to import things into Canvas, so why not just do it ourselves? While many instructors do choose to handle the import themselves, I chose a different path. 
+
+The primary reason is that Ecampus is _good_ at Canvas where I am _competent_. Could I have done all the imports myself? Of course, but it would have taken me longer than it did for my liason. 
+
+Ecampus also has a better understanding of all the pieces that have to be in place before a course is ready to publish. I am not talking about the lessons, but all the administrative elements that go into a course: due dates, where to put the CLOs, and setting a module unlock schedule. All these things I have done myself, but I do it only once every 11 weeks so have to reteach myself, whereas Ecampus does it daily.
+
+My liason was also able to handle getting all my video content captioned and to ensure my course met the requirements of DAS. These are regulations that I was not very familiar with so it was a blessing to have someone check my work. 
+
+Finally, Ecampus also has the ability to create animations for instructors and to generate icons/banners/art. These are things that can really make a good class _great_. For example, I wouldn't have thought of using icons as part of my Horizontal Rules or to add a Git log diagram to the course banner.
+
+![HR Icon](./images/hr_icon.png "The little touches make it great")
+
+![Course Banner](./images/banner_art.png "Such attention to detail")
+
+# Wrap-Up
+
+I am a stubborn man and accepting help is sometimes a difficult thing for me to do. Luckily, deadlines and limited time forced me to develop this symbiotic workflow with Ecampus. Each course developer is assigned an Ecampus liason and it honestly would have been foolish of me not to avail myself of their services. 
+
+By using a similar workflow as described here, I am positive that your course development will only get easier for all parties involved. I know it really helped reduce my stress levels and allow me to focus on creating exciting and engaging content for the students. Likewise, my Ecampus liason mentioned how helpful he found this workflow, thus inspiring this guide.
+
 
 
 
