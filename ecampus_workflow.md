@@ -116,7 +116,7 @@ Markdown allows for directly writing HTML code into the same document. This is v
 
 It also makes it very easy to embed content from other pages. This includes things like YouTube videos, but more importantly for our purposes...
 
-<!-- <iframe height="400px" width="100%" src="https://repl.it/@coeCS362/providinganswers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe> -->
+<iframe height="400px" width="100%" src="https://repl.it/@coeCS362/providinganswers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Writing Markdown
 
@@ -124,27 +124,39 @@ One of the best parts of writing Markdown is that you can do it in _any_ text ed
 
 ### The Correct Way - Emacs
 
-I have an addiction and that addiction is called _Emacs_. 
+I have an addiction and that addiction is called _Emacs_. Using the King of Editors, it is possible to set up a workflow that allows you to write in Markdown and have it rendered in a browswer in real time. This is very useful when getting used to Markdown and you want to ensure everything looks as you would expect.
 
+![Realtime Rendering](./images/emacs_browser.png "The only way to Markdown!")
 
-```lisp
-(defun markdown-html (buffer)
-  (princ (with-current-buffer buffer
-    (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
-	 (current-buffer)))
+I am sure most folks don't want to use Emacs so I won't detail how to set it up this way, but if you are interested send me an email ([iannie@oregonstate.edu](mailto:iannie@oregonstate.edu)).
 
-(defun markdown-preview-live ()
-  (interactive)
-  (impatient-mode 1)
-  (setq imp-user-filter #'markdown-html)
-  (cl-incf imp-last-state)
-  (imp--notify-clients))
-```
 ### The Less Correct Way - VS Code
 
-# Enter GitHub
-## GitHub Markdown
-## GitHub Pages
+While this is not the _ideal_ way of writing Markdown, it is _acceptable_ as VS Code allows Emacs keybindings. Believe it or not, VS Code requires zero work on your part to allow you to preview what your Markdown would look in a browser. 
+
+First you need to open the Markdown file you want to preview. Then you need to click the "Open Preview to the Side" button shown below.
+
+![Open Preview](./images/vscode_split.png "Big name for little button")
+
+You will now have a real time render of your Markdown.
+
+![Split view](./images/vscode_preview.png "BAM!")
+
+One word of warning about VS Code's solution. If you copy directly from the preview panel and paste it into Canvas, some of the formatting may be messed up. It is better to use the solution mentioned below
+
+## Enter GitHub
+
+What I didn't mention when discussing the development of Markdown is that the original authors stopped developing it the same year it was first released. One of the biggest reasons for Markdown's continued use could be that GitHub adopted it as the language for their `README.md` files. 
+
+### GitHub Markdown
+
+GitHub's love affair with Markdown has lead them to create their own variant. It follows pretty much all the rules of Vanilla Markdown, but it is rendered exactly how GitHub wants it. One example of this is the above mentioned Syntax Highlighting for code snippets. As you can see in the image below, GitHub's Syntax Highlighting is more in line with what you would expect.
+
+![GitHub Flavored MD](./images/github_flavored_md.png "Which one looks better?")
+
+What is even better about GitHub, is that _any_ Markdown file hosted in a repo is automatically converted when visiting the page. 
+
+### GitHub Pages
 
 # What about Ecampus?
 
