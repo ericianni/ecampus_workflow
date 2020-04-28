@@ -51,17 +51,72 @@ So what can Markdown do for us as course developers? Why would we want to use it
 
 How many times have you wanted to include something as simple as a code snippet in your content only to be thwarted by the _Rich Text Editor_?
 
-![Let's change this to code!](./images/rich_text1.png)  
+![Let's change this to code!](./images/rich_text1.png "This seems intuitive")  
 Suppose you want to make "mystery_func" in the following example into a code snippet. We highlight it and select preformatted.
 
-![Curses!](./images/rich_text2.png)  
+![Curses!](./images/rich_text2.png "But why?")  
 Clearly this didn't work as we expected! The only solution Canvas offers is to use the _HTML Editor_, which is tedious and not the easiest if you are unfamiliar with HTML.
 
-* Can include HTML right in markdown, like Replits
+As we will see in a moment, Markdown can produce HTML that can be easily copied and pasted directly into Canvas! 
+
+### Develop Content Like You Do Software
+
+Many of us spend a large amount of time inside a code editor and in many ways it just feels _right_. Why give up that warm feeling of home to create our courses? Well with Markdown, you never have to leave your editor of choice!
+
+### Come On, Everybody's Doing It!
+
+For many of us, our primary experience with Markdown is in a GitHub `README.md`. But Markdown is gaining popularity in other sectors. Slack allows Markdown to be directly written in the standard message field. Even Piazza is getting into the Markdown game with their new post editor. Knowing how to use Markdown can really help with your messaging to the students.
+
 
 ## Common Markdown
-* Headers
-* text emphasis
+
+Honestly, Markdown is a very small language and if you wanted, you could probably get it put onto a mug! 
+
+![Markdown Mug](./images/mug.png "This isn't real")
+
+We won't be going over all the Markdown commands here, but you can find a very detailed cheatsheet from [GitHub](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+### Headers
+
+Use a `#` to indicate a header. This equivelant to `<H1>` tags in HTML. To shrink the size of the header, just keep adding `#`'s! For example, `###` is the same as `<H3>`
+
+### Text Emphasis
+
+* _Italics_ are created using single underscores or astrisks. Both `_italics_` and `*italics*` render as _italics_.
+
+* **Bold** is applied using double underscores or astrisks. Both `__bold__` and `**bold**` render as **bold**.
+
+* Combining them gets a bit trickier, but can be done by combining underscores _and_ astrisks: `**This is bold and _this is bold italics_**` renders as  **This is bold and _this is bold italics_**.
+
+### Images
+
+Images are inserted using `![alt text](path-to-the-image "Hover text")`. The path to the image can be relative like `./images/mug.png` or a url. The picture of the mug above uses the following: `![Markdown Mug](./images/mug.png "This isn't real")`.
+
+### Code
+
+Markdown has two ways of inserting code: inline and blocks.
+
+* Inline: Use backticks (the one to the left of the 1 key) to surround the code snippet: `` `code snippet` `` renders as `code snippet`.
+
+* Block: These are better suited for multiline code snippets. You can even designate syntax highlighting by specifying the language you are writing. To use, surround your code above and below with three backticks ` ``` `. If you want to specify a language, this goes immediately after the first three backticks.
+
+````markdown
+```python
+def hello_world():
+	print('Hello World')
+```
+````
+```python
+def hello_world():
+	print('Hello World')
+```
+
+### HTML
+
+Markdown allows for directly writing HTML code into the same document. This is very useful as Markdown, while useful, is missing some common things like underlining. To produce <u>this underlined statement</u> all I had to do was surround it with `<u></u>`.
+
+It also makes it very easy to embed content from other pages. This includes things like YouTube videos, but more importantly for our purposes...
+
+<iframe height="400px" width="100%" src="https://repl.it/@coeCS362/providinganswers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Writing Markdown
 ### The Correct Way - Emacs
