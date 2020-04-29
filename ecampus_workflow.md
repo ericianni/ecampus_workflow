@@ -251,6 +251,34 @@ Once a card moved to *Done*, Ecampus could follow the provided URL and almost li
 
 ![Copy Markdown Results](./images/copy_markdown_results.png "It really is that easy")
 
+### Making Code Prettier
+
+You may have noticed that the code as it appears in Canvas doesn't have our nice GitHub _syntax highlighting_. This is an unfortunate limitation of Canvas' style sheets, which we can't change. While most code samples are readable without it, syntax highlighting adds a nice touch and makes the content look more professional.
+
+In order to get a similar look is to generate HTML code that includes the style information inline. 
+
+#### Hilite.me
+
+Perhaps the easiest to use is [Hilite.me](www.hilite.me). It is browser based so all you have to do is type in your source code, pick the programming language, and pick a style. The webpage will then generate HTML that you can directly paste into your Markdown.
+
+##### Drab...
+
+![Canvas Python snippet](./images/canvas_python.png "So drab")
+
+##### Becomes Fab!
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hello_world</span>():
+    <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Hello world!&quot;</span>)
+</pre></div>
+
+#### Pygments
+
+If commandline is more your speed, you can use something called [Pygments](www.pygments.org). As you could probably gather from the name, this is a Python based tool that can be run against source files and it will output raw HTML.
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">hello_world</span>():
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&quot;Hello world!&quot;</span>)
+</pre></div>
+
 ## Be Kind to your ID
 
 As you can see, this workflow is designed to be very low maintence and allow for you to seamlessly hand off content to Ecampus with a minimum of communication overhead. That said, there are things that can make the life of your Ecampus liason much easier.
